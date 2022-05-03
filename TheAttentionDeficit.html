@@ -9,7 +9,7 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play TheAttentionDeficit.</tw-noscript></noscript></tw-story>
-<tw-storydata name="TheAttentionDeficit" startnode="1" creator="Twine" creator-version="2.3.16" ifid="02710097-751F-47F5-B6E2-7E48F80A6B79" zoom="1" format="Harlowe" format-version="3.2.3" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Start" tags="" position="385,18" size="100,100">&lt;body&gt;
+<tw-storydata name="TheAttentionDeficit" startnode="1" creator="Twine" creator-version="2.3.16" ifid="02710097-751F-47F5-B6E2-7E48F80A6B79" zoom="1" format="Harlowe" format-version="3.2.3" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Start" tags="" position="385,17" size="100,100">&lt;body&gt;
 you wake up to the aggressive drums of a rap song
 the phone screen says 10:12
 your first class of the day is at 9 am
@@ -26,7 +26,7 @@ you do some mental math
 (set: $gamesaleread to false)
 (set: $satiredone to 0)
 (set: $twinedone to 0)
-(set: $medicated to false)
+(set: $medicated to 0)
 &lt;body&gt;
 you wake up to the aggressive drums to a different rap song
 you roll over and see 11:57 on the phone screen
@@ -53,31 +53,32 @@ you check the to do list and your stomach drops
 what to do first?
 why are there so many things?
 
-[[start work now -&gt; unmedicated work]] 
+(if: $medicated is 1)[[[get to work -&gt; medicated work]]]
+(if: $medicated is 0)[[[try to get started on work -&gt; unmedicated work]]] 
 [[ask if anyone wants to get food -&gt; breakfast message]] 
 [[start to panic -&gt; todolistpanic]]
 &lt;img src=&quot;https://jeremry.github.io/twine/images/20220412_233133.jpg&quot;width=&quot;20%&quot;&gt;
-&lt;body&gt;</tw-passagedata><tw-passagedata pid="5" name=" unmedicated work" tags="" position="522,715" size="100,100">&lt;body&gt;
-you open your laptop and are overwhelmed
+&lt;body&gt;</tw-passagedata><tw-passagedata pid="5" name=" unmedicated work" tags="" position="521,715" size="100,100">&lt;body&gt;
+you open your laptop to do some work
 (if:$satireread is not true)[what should i do first?]
 (if:(history: where its name contains &quot;to do list&quot;)&#39;s length &lt; 1)[what even is there to do?]
 (if:$gamesaleread is not true or $satireread is not true)[is that a gmail notification?]
-your stomach grumbles as you remember that starting work like this would mean working unmedicated
+your stomach grumbles as you realize that working like this would mean working unmedicated
 
 (if:(history: where its name contains &quot;to do list&quot;)&#39;s length &lt; 1)[[[check to do list -&gt; to do list]]]
 (if:(history: where its name contains &quot;sending message&quot;)&#39;s length &lt; 1)[[[get breakfast and take medication -&gt; breakfast message]]]
 (if:$gamesaleread is not true or $satireread is not true)[[[open inbox -&gt; gmail]]]
-(if:(history: where its name contains &quot;to do list&quot;)&#39;s length &gt;= 1 and (history: where its name contains &quot;unmed twine&quot;)&#39;s length &lt; 1)[[[work on twine project because it is at the top -&gt; unmed twine]]]
-(if:(history: where its name contains &quot;unmed twine&quot;)&#39;s length &gt;= 1)[[[continue work on twine -&gt; unmed twine two]]]
-(if: $satireread is true and (history: where its name contains &quot;to do list&quot;)&#39;s length &gt;= 1 and (history: where its name contains &quot;unmed satire&quot;)&#39;s length &lt; 1)[[[work on satire because it is due at midnight -&gt; unmed satire]]]
-(if: $satireread is true and (history: where its name contains &quot;to do list&quot;)&#39;s length &gt;= 1 and (history: where its name contains &quot;unmed satire&quot;)&#39;s length &gt;= 1)[[[continue working on satire -&gt; unmed satire two]]]
+(if:(history: where its name contains &quot;to do list&quot;)&#39;s length &gt; 0 and (history: where its name contains &quot;unmed twine&quot;)&#39;s length &lt; 1)[[[work on twine project because it is at the top -&gt; unmed twine]]]
+(if:(history: where its name contains &quot;unmed twine&quot;)&#39;s length &gt; 0)[[[continue work on twine -&gt; unmed twine two]]]
+(if: $satireread is true and (history: where its name contains &quot;to do list&quot;)&#39;s length &gt; 0 and (history: where its name contains &quot;unmed satire&quot;)&#39;s length &lt; 1)[[[work on satire because it is due at midnight -&gt; unmed satire]]]
+(if: $satireread is true and (history: where its name contains &quot;to do list&quot;)&#39;s length &gt; 0 and (history: where its name contains &quot;unmed satire&quot;)&#39;s length &gt; 0 and $satiredone &lt; 10)[[[continue working on satire -&gt; unmed satire two]]]
 &lt;img src=&quot;https://jeremry.github.io/twine/images/20220412_222823.jpg&quot;width=&quot;20%&quot;&gt;
-&lt;body&gt;</tw-passagedata><tw-passagedata pid="6" name=" breakfast message" tags="" position="322,725" size="100,100">&lt;body&gt;
+&lt;body&gt;</tw-passagedata><tw-passagedata pid="6" name=" breakfast message" tags="" position="322,724" size="100,100">&lt;body&gt;
 (if:(history: where its name contains &quot;gmail&quot;)&#39;s length &lt; 1)[as you open the socials folder on your phone, you see 3 new emails]
 (if:(history: where its name contains &quot;gmail&quot;)&#39;s length &lt; 1)[[[open gmail -&gt; gmail]]]
 [[open discord to send the message -&gt; sending message]] 
 (if:(history: where its name contains &quot;gmail&quot;)&#39;s length &lt; 1)[&lt;img src=&quot;https://jeremry.github.io/twine/images/Screenshot_20220412-222203.jpg&quot;width=&quot;20%&quot;&gt;]
-&lt;body&gt;</tw-passagedata><tw-passagedata pid="7" name=" gmail" tags="" position="159,570" size="100,100">you see your inbox
+&lt;body&gt;</tw-passagedata><tw-passagedata pid="7" name=" gmail" tags="" position="159,572" size="100,100">you see your inbox
 
 * appointment confirmation with disabilities advisor
 (if:$satireread is not true)[[[deadline change for satire piece -&gt; satire deadline]]]
@@ -85,7 +86,8 @@ your stomach grumbles as you remember that starting work like this would mean wo
 (if:$gamesaleread is not true)[[[you have 4 games on your wishlist that are on sale -&gt; game sale]]]
 
 (if:$gamesaleread is true and $satireread is true)[[[go to discord to send the message -&gt; sending message]]]
-(if:$gamesaleread is true and $satireread is true)[[[get to work on yor laptop -&gt; unmedicated work]]]</tw-passagedata><tw-passagedata pid="8" name=" game sale" tags="" position="28,666" size="100,100">(set: $gamesaleread to true)
+(if:($gamesaleread is true and $satireread is true) and (history: where its name contains &quot;medicated work&quot;)&#39;s length &gt; 0)[[[get to work -&gt; medicated work]]]
+(if:($gamesaleread is true and $satireread is true) and (history: where its name contains &quot;medicated work&quot;)&#39;s length &lt; 1)[[[try to get started on work -&gt; unmedicated work]]]  </tw-passagedata><tw-passagedata pid="8" name=" game sale" tags="" position="28,666" size="100,100">(set: $gamesaleread to true)
 (set: $timepassed to $timepassed + 1)
 
 you open the email and see that 4 of your favorite games are on sale
@@ -101,12 +103,12 @@ subject: satire piece deadline change
 
 hello everyone.  sorry for the sudden change, but since i want everyone to present their satire piece tomorrow in class, you have until tonight instead of tomorrow night to turn it in.  it should not take much work, it is only a fifteen minute assignment
 
-[[go back to inbox -&gt; gmail]] </tw-passagedata><tw-passagedata pid="10" name=" sending message" tags="" position="235,865" size="100,100">(if: $timepassed &gt; 1)[as you glance to the top of your screen, you see that the clock is past 12:30]
+[[go back to inbox -&gt; gmail]] </tw-passagedata><tw-passagedata pid="10" name=" sending message" tags="" position="240,873" size="100,100">(if: $timepassed &gt; 1)[as you glance to the top of your screen, you see that the clock is past 12:30]
 (if: $timepassed &gt; 1)[past the start of the class period]
 (if: $timepassed &gt; 1)[yes, you could send a message asking who wanted food, but that would also be sent to the people in class]
 (if: $timepassed &gt; 1)[you missed your chance to get a meal with friends]
 
-(if: $timepassed &gt; 1)[[[get a meal by yourself -&gt; solitary breakfast]]]
+(if: 3 &gt; $timepassed and $timepassed &gt; 1)[[[get a meal by yourself -&gt; solitary breakfast]]]
 (if: $timepassed &gt; 1)[[[head to work -&gt; unmedicated work]]]
 
 (if: $timepassed &lt;= 1)[as you glance to the top of your screen, you see that there&#39;s still time to head to breakfast with your friends before 12:30 classes start]
@@ -115,18 +117,24 @@ hello everyone.  sorry for the sudden change, but since i want everyone to prese
 you try to buckle down and at least get a start, but ideas are not coming into your head on what to do your project about
 after what feels like roughly two minutes of brainstorming, you glance to see that actually thirty minutes have passed
 
-[[hope to beat the distractions and hyper-focus -&gt; unmed twine two]]
-[[call it quits and try to get breakfast -&gt; breakfast message]] </tw-passagedata><tw-passagedata pid="12" name=" unmed satire" tags="" position="557,453" size="100,100">(set: $timepassed to $timepassed + 2)
+(if: $timepassed &lt; 10)[[[hope to beat the distractions and hyper-focus -&gt; unmed twine two]]]
+(if: $timepassed &lt; 10)[[[call it quits and try to get breakfast -&gt; breakfast message]]]
+(if: $timepassed &lt; 10)[[[read the unopened gmail notification -&gt; gmail]]]
+(if: $timepassed &gt; 9)[[[head to dinner -&gt; dinner]]]</tw-passagedata><tw-passagedata pid="12" name=" unmed satire" tags="" position="561,453" size="100,100">(set: $timepassed to $timepassed + 2)
 
 you try to buckle down and at least get a start on your satire piece, but ideas are not coming into your head on what to write about
 after what feels like a rough two minutes of brainstorming, you glance to see that actually thirty minutes have passed
 
-[[hope to beat the distractions and hyper-focus -&gt; unmed satire two]]
-[[call it quits and try to get breakfast -&gt; breakfast message]] </tw-passagedata><tw-passagedata pid="13" name=" unmed satire two" tags="" position="727,420" size="100,100">(set: $timepassed to $timepassed + 2)
+(if:$timepassed &lt; 10)[[[hope to beat the distractions and hyper-focus -&gt; unmed satire two]]]
+(if:$timepassed &lt; 10)[[[call it quits and try to get breakfast -&gt; breakfast message]]]
+(if:$timepassed &gt; 9)[[[head to dinner -&gt; dinner]]]</tw-passagedata><tw-passagedata pid="13" name=" unmed satire two" tags="" position="727,420" size="100,100">(set: $timepassed to $timepassed + 2)
 (set: $satiredone to $satiredone + 1)
 
 you grumble something about diminishing returns and carry on working, nose to the grindstone
-</tw-passagedata><tw-passagedata pid="14" name=" todolistpanic" tags="" position="402,581" size="100,100">(set: $timepassed to $timepassed + 1)
+you make a bit of progress and figure out the topic of your piece
+
+(if: $timepassed &lt; 10)[[[buckle down and keep on working -&gt; unmed satire three]]]
+(if: $timepassed &gt; 9)[[[head to dinner -&gt; dinner]]]</tw-passagedata><tw-passagedata pid="14" name=" todolistpanic" tags="" position="402,581" size="100,100">(set: $timepassed to $timepassed + 1)
 
 so many things to do
 such little time
@@ -139,13 +147,118 @@ negative thoughts flood your head
 after a few deep breaths, you realize that this won&#39;t change unless you get started
 you realize that fifteen minutes has gone by between you pulling out the list and now
 
-[[start work now -&gt; unmedicated work]] 
-[[ask if anyone wants to get food -&gt; breakfast message]] </tw-passagedata><tw-passagedata pid="15" name=" solitary breakfast" tags="" position="95,1068" size="100,100">(set: $medicated to true)
-</tw-passagedata><tw-passagedata pid="16" name=" unmed twine two" tags="" position="877,493" size="100,100">(set: $timepassed to $timepassed + 2)
+(if:(history: where its name contains &quot;medicated work&quot;)&#39;s length &gt; 0)[[[get to work -&gt; medicated work]]]
+(if:(history: where its name contains &quot;medicated work&quot;)&#39;s length &lt; 1)[[[try to get started on work -&gt; unmedicated work]]]  
+[[ask if anyone wants to get food -&gt; breakfast message]] </tw-passagedata><tw-passagedata pid="15" name=" solitary breakfast" tags="" position="95,1067" size="100,100">(set: $medicated to 1)
+(set: $timepassed to $timepassed + 2)
+it feels bad, but you manage to drag yourself to the dining hall and get food
+more importantly, you get medication in you
+now, what is there to do?
+[[head to work -&gt; medicated work]] </tw-passagedata><tw-passagedata pid="16" name=" unmed twine two" tags="" position="914,584" size="100,100">(set: $timepassed to $timepassed + 2)
 (set: $twinedone to $twinedone + 1)
 
-</tw-passagedata><tw-passagedata pid="17" name=" group breakfast" tags="" position="331,1065" size="100,100">(set: $medicated to true)
-</tw-passagedata></tw-storydata>
+you finally come up with what you think is a decent idea
+as you try to get started, you end up staring at an almost blank page for twenty minutes
+(if:$timepassed &lt; 10)[[[buckle down and keep on working -&gt; unmed twine three]]]
+(if:$timepassed &lt; 10)[[[read the unopened gmail notification -&gt; gmail]]]
+(if:$timepassed &gt; 9)[[[head to dinner -&gt; dinner]]]</tw-passagedata><tw-passagedata pid="17" name=" group breakfast" tags="" position="331,1065" size="100,100">(set: $medicated to 1)
+(set: $timepassed to $timepassed + 3)
+you managed to get out of bed in time to grab food with friends
+you spend a bit longer than necessary talking with them, but the positive experience far outweighs the time lost
+most importantly, you get your medication in your system, and are fired up to get some work done
+now, what to do?
+[[get started on work -&gt; medicated work]]</tw-passagedata><tw-passagedata pid="18" name=" medicated work" tags="" position="222,1218" size="100,100">you open your laptop and are ready to get some work done
+(if:$satireread is not true)[what should i do first?]
+(if:(history: where its name contains &quot;to do list&quot;)&#39;s length &lt; 1)[what even is there to do?]
+(if:$gamesaleread is not true or $satireread is not true)[is that a gmail notification?]
+
+
+(if:(history: where its name contains &quot;to do list&quot;)&#39;s length &lt; 1)[[[check to do list -&gt; to do list]]]
+(if:$gamesaleread is not true or $satireread is not true)[[[open inbox -&gt; gmail]]]
+(if:(history: where its name contains &quot;to do list&quot;)&#39;s length &gt;= 1 and (history: where its name contains &quot;unmed twine&quot;)&#39;s length &lt; 1)[[[work on twine project because it is at the top -&gt; med twine]]]
+(if:(history: where its name contains &quot;unmed twine&quot;)&#39;s length &gt;= 1)[[[continue work on twine -&gt; med twine two]]]
+(if: $satireread is true and (history: where its name contains &quot;to do list&quot;)&#39;s length &gt;= 1 and (history: where its name contains &quot;unmed satire&quot;)&#39;s length &lt; 1)[[[work on satire because it is due at midnight -&gt; med satire]]]
+(if: $satireread is true and (history: where its name contains &quot;to do list&quot;)&#39;s length &gt;= 1 and (history: where its name contains &quot;unmed satire&quot;)&#39;s length &gt;= 1)[[[continue working on satire -&gt; med satire two]]]</tw-passagedata><tw-passagedata pid="19" name=" med twine" tags="" position="523,1326" size="100,100">(set: $timepassed to $timepassed + 2)
+(set: $twinedone to $twinedone + 2)
+
+you get some work done
+you come up with your idea and start implementing it
+(if: $timepassed &lt; 10)[[[read the unopened gmail notification -&gt; gmail]]]
+(if: $timepassed &lt; 10)[[[continue working on twine -&gt; med twine two]]]
+(if: $timepassed &gt; 9)[you check the clock and see that it is 6 pm]
+(if: $timepassed &gt; 9)[[[head to dinner -&gt; dinner]]]</tw-passagedata><tw-passagedata pid="20" name=" med twine two" tags="" position="742,1300" size="100,100">(set: $timepassed to $timepassed + 2)
+(set: $random to (random: (4, 7)))
+(set: $twinedone to $twinedone + $random)
+
+(if: $timepassed &lt; 10 and $twinedone &lt; 10 and $random &lt; 5)[you get a bit of work done]
+(if: $timepassed &lt; 10 and $twinedone &lt; 10 and $random &gt; 4 and $random &lt; 6)[you get some work done]
+(if: $timepassed &lt; 10 and $twinedone &lt; 10 and $random &gt; 5 and $random &lt; 7)[you feel like the project is coming together very well]
+(if: $timepassed &lt; 10 and $twinedone &lt; 10 and $random &gt; 6)[you start powering through the project]
+(if: $timepassed &lt; 10 and $twinedone &lt; 10)[[[continue working on the project -&gt; med twine two]]]
+
+(if: $timepassed &lt; 10 and $twinedone &gt; 9)[you finish the twine project and send it in]
+(if: $timepassed &lt; 10 and $twinedone &gt; 9)[[[continue working -&gt; medicated work]]]
+
+(if: $timepassed &gt; 9)[you check the clock and see that it is 6 pm]
+(if: $timepassed &gt; 9)[[[head to dinner -&gt; dinner]]]</tw-passagedata><tw-passagedata pid="21" name=" med satire" tags="" position="510,1135" size="100,100">(set: $satiredone to $satiredone + 2)
+(set: $timepassed to $timepassed + 2)
+
+you get some serious work done
+you start making setups and punchlines and things are starting to form together
+(if: $timepassed &lt; 10)[[[continue on your roll -&gt; med satire two]]]
+(if: $timepassed &gt; 9)[you check the clock and see that it is 6 pm]
+(if: $timepassed &gt; 9)[[[head to dinner -&gt; dinner]]]</tw-passagedata><tw-passagedata pid="22" name=" med satire two" tags="" position="708,1123" size="100,100">(set: $timepassed to $timepassed + 2)
+(set: $random to (random: (4, 7)))
+(set: $satiredone to $satiredone + $random)
+
+(if: $timepassed &lt; 10 and $satiredone &lt; 10 and $random &lt; 5)[you get some work done]
+(if: $timepassed &lt; 10 and $satiredone &lt; 10 and $random &gt; 4 and $random &lt; 6)[you get a fair amount of work done]
+(if: $timepassed &lt; 10 and $satiredone &lt; 10 and $random &gt; 5 and $random &lt; 7)[you get a lot of work done]
+(if: $timepassed &lt; 10 and $satiredone &lt; 10 and $random &gt; 6)[you start powering through the piece]
+(if: $timepassed &lt; 10 and $satiredone &lt; 10)[[[continue working on the piece -&gt; med satire two]]]
+
+(if: $timepassed &lt; 10 and $satiredone &gt; 9)[you finish the satire piece and send it in]
+(if: $timepassed &lt; 10 and $satiredone &gt; 9)[[[continue working -&gt; medicated work]]]
+
+(if: $timepassed &gt; 9)[you check the clock and see that it is 6 pm]
+(if: $timepassed &gt; 9)[[[head to dinner -&gt; dinner]]]</tw-passagedata><tw-passagedata pid="23" name=" unmed satire three" tags="" position="916,345" size="100,100">(set: $timepassed to $timepassed + 2)
+(set: $random to (random: (1, 4)))
+(set: $satiredone to $satiredone + $random)
+
+(if: $timepassed &lt; 10 and $satiredone &lt; 10 and $random &lt; 2)[you struggle to get much work done]
+(if: $timepassed &lt; 10 and $satiredone &lt; 10 and $random &gt; 1 and $random &lt; 3)[you get some work done]
+(if: $timepassed &lt; 10 and $satiredone &lt; 10 and $random &gt; 2 and $random &lt; 4)[you feel like the piece is coming together very well]
+(if: $timepassed &lt; 10 and $satiredone &lt; 10 and $random &gt; 3)[you start powering through the piece]
+(if: $timepassed &lt; 10 and $satiredone &lt; 10)[[[continue working on the piece -&gt; unmed satire three]]]
+
+(if: $timepassed &lt; 10 and $satiredone &gt; 9)[you finish the satire piece and send it in]
+(if: $timepassed &lt; 10 and $satiredone &gt; 9)[[[continue working -&gt; unmedicated work]]]
+
+(if: $timepassed &gt; 9)[you check the clock and see that it is 6 pm]
+(if: $timepassed &gt; 9)[[[head to dinner -&gt; dinner]]]</tw-passagedata><tw-passagedata pid="24" name=" unmed twine three" tags="" position="1087,481" size="100,100">(set: $timepassed to $timepassed + 2)
+(set: $random to (random: (0, 3)))
+(set: $twinedone to $twinedone + $random)
+
+(if: $timepassed &lt; 10 and $twinedone &lt; 10 and $random &lt; 1)[you struggle to get much work done]
+(if: $timepassed &lt; 10 and $twinedone &lt; 10 and $random &gt; 0 and $random &lt; 2)[you get some work done]
+(if: $timepassed &lt; 10 and $twinedone &lt; 10 and $random &gt; 1 and $random &lt; 3)[you feel like the project is coming together very well]
+(if: $timepassed &lt; 10 and $twinedone &lt; 10 and $random &gt; 2)[you start powering through the project]
+(if: $timepassed &lt; 10 and $twinedone &lt; 10)[[[continue working on the project -&gt; unmed twine three]]]
+
+(if: $timepassed &lt; 10 and $twinedone &gt; 9)[you finish the twine project and send it in]
+(if: $timepassed &lt; 10 and $twinedone &gt; 9)[[[continue working -&gt; unmedicated work]]]
+
+(if: $timepassed &gt; 9)[you check the clock and see that it is 6 pm]
+(if: $timepassed &gt; 9)[[[head to dinner -&gt; dinner]]]</tw-passagedata><tw-passagedata pid="25" name=" dinner" tags="" position="1311,936" size="100,100">you have made it to the end of the day
+(if: $medicated is true)[your meds have worn out]
+working after dinner is basically impossible, as you cannot have your medication in you, and you&#39;ll be too tired
+[[let&#39;s see how well you did -&gt; finish]]</tw-passagedata><tw-passagedata pid="26" name=" finish" tags="" position="1497,946" size="100,100">(if: $satiredone &gt; 9)[you got the satire piece done, which was due at midnight]
+(if: $satiredone &lt; 10)[you failed to complete the satire piece which was due at midnight.  maybe try checking your email or getting your medication]
+(if: $twinedone &gt; 9)[you got the twine project done.  it wasn&#39;t due for a whole week, but any work done is work]
+(if: $twinedone &lt; 10)[you didn&#39;t complete the twine project, but that isn&#39;t due for a whole week, so you have plenty of time]
+(if: $medication is true)[good job getting medication in your system]
+(if: $medication is false)[you might have had an easier time if you got medication in your system]
+[[try again? -&gt;Start]]</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">"use strict";var _slicedToArray=function(){return function(e,t){if(Array.isArray(e))return e;if(Symbol.iterator in Object(e))return function(e,t){var n=[],r=!0,a=!1,i=void 0;try{for(var o,s=e[Symbol.iterator]();!(r=(o=s.next()).done)&&(n.push(o.value),!t||n.length!==t);r=!0);}catch(e){a=!0,i=e}finally{try{!r&&s.return&&s.return()}finally{if(a)throw i}}return n}(e,t);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};function _defineProperty(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}!function(){
 /**
  * @license almond 0.3.3 Copyright jQuery Foundation and other contributors.
